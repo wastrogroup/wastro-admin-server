@@ -13,6 +13,7 @@ import { healthRouter } from "./modules/health/health.routes.js";
 import { inventoryRouter } from "./modules/inventory/inventory.routes.js";
 import { metaRouter } from "./modules/meta/meta.routes.js";
 import { productsRouter } from "./modules/products/products.routes.js";
+import { settingsRouter } from "./modules/settings/settings.routes.js";
 
 export function createApp() {
   const app = express();
@@ -42,6 +43,7 @@ export function createApp() {
         "/api/v1/categories",
         "/api/v1/products",
         "/api/v1/inventory/levels",
+        "/api/v1/settings",
       ],
     });
   });
@@ -53,6 +55,7 @@ export function createApp() {
   app.use("/api/v1/categories", categoriesRouter);
   app.use("/api/v1/products", productsRouter);
   app.use("/api/v1/inventory", inventoryRouter);
+  app.use("/api/v1/settings", settingsRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
